@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+
+ng-app:定义一个angularJS应用程序
+ng-model: 把元素值(比如输入域里面的值) 绑定到应用程序
+ng-bind:把应用程序数据绑定到html视图
+
+
+当页面加载完毕后,AngularJS就自动加载完毕啦.
+ng-app指令告诉AngularJS <div> 元素是 AngularJS 应用程序的 所有者
+ng-model指令 把输入域的值绑定到应用程序的变量name
+ng-bind:把应用程序变量name 绑定到某个段落的innerHTML中
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="">
+    <div >
+        <p>name : <input type="text" ng-model="name" /> </p>
+        <h1>hello{{name}}</h1>
+    </div>
+
+    <div  ng-init="firstName='wanghao1'">
+        <p>第一种方式:姓名为 <span >{{firstName}} </span> </p>
+        <p>第二种方式:姓名为 <span ng-bind="firstName"> </span> </p>
+    </div>
+
+<!--
+表达式可以是{{name}}
+也可以使用ng-bind:  比如 ng-bind="firstName"
+-->
+
+</body>
+</html>
