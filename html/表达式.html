@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表达式</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<!--
+表达式可以是{{}}双括号
+表达式把数据绑定到HTML中,这与ng-bind差不多
+表达式书写的位置"输出"数据.
+
+
+-->
+<body ng-app="" ng-init="a=1;b=2;person={name:'wanghao',age:12};array=[1,2,3,4,5]">  <!--注意多个初始化数据,要用; 分号分开-->
+    <div>
+        <p>我的第一个表达式{{5+5}}</p>
+        <p>{{}}方式 a+b= {{a+b}}</p>
+        <p>ng-bind方式 a+b= <span ng-bind="a+b"/></p>
+        <p>ng-bind 字符串方式a+b= <span ng-bind="'a'+'b'"/></p>
+        <p>对象模式person姓名: <span ng-bind="person.name"/></p>
+        <p>对象模式person岁数: {{person.age}}</p>
+        <p>数组模式: {{array[2]}}</p>
+        <p>数组模式-ng-bind: <span ng-bind="array[2]"/></p>
+    </div>
+</body>
+</html>

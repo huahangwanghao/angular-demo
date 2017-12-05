@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+
+<!--
+ng-app:初始化一个容器作为AngularJS应用程序
+ng-init: 初始化应用程序数据
+ng-model: 把元素(比如输入域里面的值) 绑定到应用程序
+
+-->
+
+<body ng-app="">
+
+<p>
+    input from input:
+</p>
+<p>name:<input ng-model="name" /></p>
+<p>you input value is {{name}}</p>
+
+<div>
+    
+    <h2>价格计算器</h2>
+    数量:<input ng-model="count"/>
+    单价:<input ng-model="price"/>
+    <p>总价:{{count*price}}</p>
+</div>
+
+<h2>重复HTML元素</h2>
+<span ng-model="names=['jhon','jack','sum',4,5,6]"></span>
+<div>
+    <p>使用 ng-repeat来循环数据</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{x}}
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
