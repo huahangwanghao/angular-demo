@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+    <script src="../js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+Scope 作用域是应用在html和js之间的纽带.
+scope是一个对象, 有属性和方法
+scope可以应用在视图和控制器上
+
+当你在AngularJS创建控制器时, 可以将$scope对象当做参数传递
+
+<div ng-controller="myCtrl">
+    <h2>{{carName}}</h2>
+</div>
+<div ng-controller="myCtrl1">
+    <input ng-model="carName1">
+</div>
+
+<!--
+AngularJS应用包含
+    View  :  html
+    Model  : 当前视图中可用的数据
+    Controller : js函数, 可以添加和修改属性
+
+
+-->
+
+
+
+<div ng-controller="myCtrl2">
+    <input ng-model="name">
+    <h1>{{greeting}}</h1>
+    <button ng-click="sayHello()">点我</button>
+    
+</div>
+
+
+<script>
+
+    var app=angular.module('myApp',[]);
+    <!--当在下面的控制器中添加对应的属性的时候, 在视图中 也就是 HTML中就可以得到对应的值-->
+/*
+    app.controller('myCtrl',function($scope){
+        $scope.carName='jeep';
+    });
+    app.controller('myCtrl1',function($scope){
+        $scope.carName='jeep1';
+    });
+
+*/
+
+   /* app.controller('myCtrl2',function($scope){
+        $scope.name='jack';
+        $scope.sayHello=function(){
+            $scope.greeting=$scope.name+"  hello!";
+        }
+    });*/
+    
+    // 根作用域 所有的应用都有一个$rootScope, 它可以作用域ng-app指令包含的所有HTML元素
+    app.controller('myCtrl2',function($scope,$rootScope){
+        $scope.name='jack';
+        $rootScope.carName1='1';
+        $scope.sayHello=function(){
+            $scope.greeting=$scope.name+"  hello!"+1;
+        }
+    });
+</script>
+
+
+</body>
+</html>
